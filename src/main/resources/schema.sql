@@ -4,9 +4,11 @@ CREATE TABLE Dueno(
 );
 
 CREATE TABLE Mascota(
-    num_chip INT NOT NULL PRIMARY KEY,
+    codigo INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    num_chip INT,
     nombre VARCHAR(30),
     corriente_vacunacion BOOLEAN,
-    dni_dueno VARCHAR(9)
+    dni_dueno VARCHAR(9),
+    FOREIGN KEY (dni_dueno) REFERENCES Dueno(dni)
 );
 
