@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Dueños</title>
+</head>
+<body>
+    <form th:object="${dueno}" th:action="@{/insertarDueno}">
+        <h3>Dni: </hh3><input type="text" th:field="*{dni}">
+        <h3>Nombre y apellidos</h3><input type="text" th:field="*{nombre}">
+        <hr>
+        <input type="submit">
+    </form>
+</body>
+</html>

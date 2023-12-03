@@ -13,14 +13,15 @@ public class MascotaRowMapper implements RowMapper<Mascota> {
     @Override
     public Mascota mapRow(ResultSet rs, int rowNum) throws SQLException {
         Dueno dueno = new Dueno();
-        dueno.setDni(rs.getString("d.dni"));
-        dueno.setNombre(rs.getString("d.nombre"));
+        dueno.setDni(rs.getString("dniD"));
+        dueno.setNombre(rs.getString("nomD"));
+        
         Mascota mascota = new Mascota();
         mascota.setDueno(dueno);
-        mascota.setCodigo(rs.getInt("m.codigo"));
-        mascota.setNumChip(rs.getInt("m.num_chip"));
-        mascota.setNombre(rs.getString("m.nombre"));
-        mascota.setCorrienteVacunacion(rs.getBoolean("m.corriente_vacunacion"));
+        mascota.setCodigo(rs.getInt("codigo"));
+        mascota.setNumChip(rs.getInt("numChip"));
+        mascota.setNombre(rs.getString("nombreM"));
+        mascota.setCorrienteVacunacion(rs.getBoolean("corrVac"));
         return mascota;
     }
     

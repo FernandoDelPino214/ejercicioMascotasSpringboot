@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thyneleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title>Listado de mascotas</title>
 </head>
 <body>
-    <table>
+    <table style="border:solid 2px; border-radius: 1px;">
         <tr>
-            <th>Código chip</th>
+            <th>Dni</th>
             <th>Nombre</th>
-            <th>Al corriente de vacunación</th>
+        </tr>
+        <tr th:each="dueno : ${listaDuenos}">
+            <td th:text="${dueno.dni}"></td>
+            <td th:text="${dueno.nombre}"></td>
+            <td><a th:href="@{'/formModificarDueno/'+${dueno.dni}}"><input type="button" value="Cambiar nombre"></a></td>
+            <td><a th:href="@{'/avisoEliminarDueno/'+${dueno.dni}}"><input type="button" value="Eliminar dueno"></a></td>
         </tr>
     </table>
+    <a th:href="@{/formInsertarDueno}"><h3>Insertar un nuevo dueño</h3></a>
+    <a th:href="@{/}"><h3>Volver al índice</h3></a>
 </body>
 </html>

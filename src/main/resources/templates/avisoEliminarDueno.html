@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Advertencia</title>
+</head>
+<body>
+    <h1 style="color: red;">¿ESTÁS SEGURO DE QUE QUERES ELIMINAR ESTE DUEÑO Y TODAS SUS MSACOTAS?</h1>
+    <h3 th:text="${dueno.dni}"></h3><br>
+    <h3 th:text="${dueno.nombre}"></h3><br>
+    <a th:href="@{'/../eliminarDueno/' + ${dueno.dni}}"><input type="button" value="Confirmar"></a>
+    <a th:href="@{/listaDuenos}"><input type="button" value="Volver"></a>
+</body>
+</html>

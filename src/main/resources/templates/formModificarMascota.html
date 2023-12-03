@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Mascotas</title>
+</head>
+<body>
+    <form th:object="${mascota}" th:action="@{/actualizarMascota}">
+        <input hidden th:field="*{codigo}">
+        <h3>Número de chip: </h3><input type="number" th:field="*{numChip}"><br>
+        <h3>Nombre</h3><input type="text" th:field="*{nombre}"><br>
+        <h3>¿Al coriente de sus vacunaciones?</h3><input type="checkbox" th:field="*{corrienteVacunacion}"><br>
+        <h3>Seleccione su dueño:</h3>
+        <select name="dniDueno">
+            <option th:each="unDueno : ${listaDuenos}" th:value="${unDueno.dni}" th:text="${unDueno.dni} + ' - ' + ${unDueno.nombre}"></option>
+        </select>
+        <hr>
+        <input type="submit">
+    </form>
+</body>
+</html>

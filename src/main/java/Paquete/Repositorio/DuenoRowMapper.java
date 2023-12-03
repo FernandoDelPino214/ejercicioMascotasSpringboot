@@ -11,7 +11,7 @@ public class DuenoRowMapper implements RowMapper<Dueno>{
 
     @Override
     public Dueno mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-        Dueno dueno = new Dueno(resultSet.getString("dni"), resultSet.getString("nombre"));
+        Dueno dueno = new Dueno(resultSet.getString("dni"), resultSet.getString("nombre_apellidos"));
         return dueno;
     }
     

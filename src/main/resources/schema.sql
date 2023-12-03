@@ -9,6 +9,6 @@ CREATE TABLE Mascota(
     nombre VARCHAR(30),
     corriente_vacunacion BOOLEAN,
     dni_dueno VARCHAR(9),
-    FOREIGN KEY (dni_dueno) REFERENCES Dueno(dni)
+    FOREIGN KEY (dni_dueno) REFERENCES Dueno(dni) ON DELETE CASCADE
 );
 

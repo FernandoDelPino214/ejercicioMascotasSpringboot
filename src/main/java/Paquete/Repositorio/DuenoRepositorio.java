@@ -16,7 +16,7 @@ public class DuenoRepositorio {
 
     
     public List<Dueno> getTodosDuenos(){
-        String query = "SELECT * FROM dueno";
+        String query = "SELECT * FROM dueno;";
         List<Dueno> listaDuenos = jdbcTemplate.query(query, new DuenoRowMapper());
         return listaDuenos;
     }
@@ -33,7 +33,12 @@ public class DuenoRepositorio {
     }
 
     public void actualizarDueno(Dueno dueno){
-        String query = "UPDATE dueno SET nombre = ? WHERE dni = ?";
+        String query = "UPDATE dueno SET nombre_apellidos = ? WHERE dni = ?";
         jdbcTemplate.update(query, dueno.getNombre(), dueno.getDni());
+    }
+
+    public void crearDueno(Dueno dueno){
+        String query = "INSERT INTO dueno (dni, nombre_apellidos) VALUES (?, ?)";
+        jdbcTemplate.update(query, dueno.getDni(), dueno.getNombre());
     }
 }
